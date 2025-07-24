@@ -19,7 +19,7 @@ public class Produto {
     private String categoria;
     private Integer estoque;
 
-        // Geters e Seters
+        // Getters e Setters
 
     public long getId() {
         return id;

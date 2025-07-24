@@ -19,7 +19,7 @@ public class Venda {
     private LocalDate data_venda; // Pega somente a data sem a hora
     private BigDecimal total;
 
-    // Geters e Seters
+    // Getters e Setters
 
     public Long getId() {
         return id;
