@@ -24,8 +24,8 @@ public class ClienteService {
         }
         clienteRepository.deleteById(id);
     }
-    
-    public List<Cliente> listarTodos(Cliente cliente){
+
+    public List<Cliente> listarTodos(){
         return clienteRepository.findAll();
     }
 
@@ -33,7 +33,7 @@ public class ClienteService {
         return clienteRepository.findByNomeContainingIgnoreCase(nome);
     }
 
-    public Cliente buscarPorCpf(String cpf){
+    public List<Cliente> buscarPorCpf(String cpf){
         return clienteRepository.findByCpf(cpf);
     }
     public Cliente atualizarCliente(Long id, Cliente dadosatualizados){
