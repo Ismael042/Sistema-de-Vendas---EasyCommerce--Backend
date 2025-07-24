@@ -18,6 +18,13 @@ public class ClienteService {
         return clienteRepository.save(cliente);
     }
 
+    public void deletarPorID(Long id){
+        if(!clienteRepository.existsById(id)){
+            throw new RuntimeException("Cliente com o ID: "+ id + " não encontrado!");
+        }
+        clienteRepository.deleteById(id);
+    }
+    
     public List<Cliente> listarTodos(Cliente cliente){
         return clienteRepository.findAll();
     }
