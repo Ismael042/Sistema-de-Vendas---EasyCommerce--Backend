@@ -13,10 +13,10 @@ import java.math.BigDecimal;
 public class ItemVenda {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
-    private long id_venda;
-    private long id_produto;
+    private Long id_venda;
+    private Long id_produto;
     private Integer quantidade;
     private BigDecimal subtotal;
 
