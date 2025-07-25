@@ -1,9 +1,6 @@
 package com.ismael.easycommerce.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
@@ -15,41 +12,14 @@ public class ItemVenda {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long id_venda;
-    private Long id_produto;
+    @ManyToOne
+    private Venda venda;
+
+    @ManyToOne
+    private Produto produto;
+
     private Integer quantidade;
+    private BigDecimal precounitario;
     private BigDecimal subtotal;
 
-        // Getters e Setters
-
-    public long getId() {
-        return id;
-    }
-    public void setId(long id) {
-        this.id = id;
-    }
-    public long getId_venda() {
-        return id_venda;
-    }
-    public void setId_venda(long id_venda) {
-        this.id_venda = id_venda;
-    }
-    public long getId_produto() {
-        return id_produto;
-    }
-    public void setId_produto(long id_produto) {
-        this.id_produto = id_produto;
-    }
-    public Integer getQuantidade() {
-        return quantidade;
-    }
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
-    }
-    public BigDecimal getSubtotal() {
-        return subtotal;
-    }
-    public void setSubtotal(BigDecimal subtotal) {
-        this.subtotal = subtotal;
-    }
 }

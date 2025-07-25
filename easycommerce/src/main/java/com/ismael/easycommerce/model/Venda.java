@@ -1,11 +1,11 @@
 package com.ismael.easycommerce.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 //id, id_cliente, data_venda, total
 
@@ -15,11 +15,16 @@ public class Venda {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long id_cliente;
+    @ManyToOne
+    private Cliente cliente;
+
     private LocalDate data_venda; // Pega somente a data sem a hora
     private BigDecimal total;
 
-    // Getters e Setters
+    @OneToMany(mappedBy = "venda" , cascade = CascadeType.ALL)
+    private List<ItemVenda> itens = new ArrayList<>();
+
+    //Getters e Setters
 
     public Long getId() {
         return id;
@@ -27,11 +32,11 @@ public class Venda {
     public void setId(Long id) {
         this.id = id;
     }
-    public Long getId_cliente() {
-        return id_cliente;
+    public Cliente getCliente() {
+        return cliente;
     }
-    public void setId_cliente(Long id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
     public LocalDate getData_venda() {
         return data_venda;
@@ -45,4 +50,11 @@ public class Venda {
     public void setTotal(BigDecimal total) {
         this.total = total;
     }
+    public List<ItemVenda> getItens() {
+        return itens;
+    }
+    public void setItens(List<ItemVenda> itens) {
+        this.itens = itens;
+    }
+
 }
