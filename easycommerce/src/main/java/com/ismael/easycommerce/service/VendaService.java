@@ -61,5 +61,5 @@ public class VendaService {
     public void remover(Long id){
         vendaRepository.deleteById(id);
     }
-    
+
 }
