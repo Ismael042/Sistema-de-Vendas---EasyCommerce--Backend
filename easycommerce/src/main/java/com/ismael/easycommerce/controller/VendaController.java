@@ -25,11 +25,11 @@ public class VendaController {
 
     @PostMapping
     private ResponseEntity<Venda> salvar(@RequestBody Venda venda){
-        Venda vendasalva = vendaService.salvar(venda);              //OBS: Ta funcionando porem bug do JSON infinito
-        return ResponseEntity.status(201).body(vendasalva);         // TA CAGADO
+        Venda vendasalva = vendaService.salvar(venda);
+        return ResponseEntity.status(201).body(vendasalva);
     }
     @GetMapping
-    private List<Venda> listarVendas(){
-        return vendaService.listarTodas();  // ERROO
+    private ResponseEntity<List<Venda>> listarVendas(){
+        return ResponseEntity.ok(vendaService.listarTodas());  
     }
 }
