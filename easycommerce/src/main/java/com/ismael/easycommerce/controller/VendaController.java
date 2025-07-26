@@ -6,10 +6,7 @@ import com.ismael.easycommerce.service.VendaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,15 @@ public class VendaController {
     }
     @GetMapping
     private ResponseEntity<List<Venda>> listarVendas(){
-        return ResponseEntity.ok(vendaService.listarTodas());  
+        return ResponseEntity.ok(vendaService.listarTodas());
+    }
+    @GetMapping("/{id}")
+    private ResponseEntity<Venda> listarPorId(@PathVariable Long id){
+        return ResponseEntity.ok(vendaService.buscarPorId(id));
+    }
+    @DeleteMapping("/deletar/{id}")
+    private ResponseEntity<Void> deletarPorId(@PathVariable Long id){
+        vendaService.remover(id);
+        return ResponseEntity.noContent().build();
     }
 }
