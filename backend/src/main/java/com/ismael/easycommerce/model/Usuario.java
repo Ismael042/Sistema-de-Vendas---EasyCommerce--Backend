@@ -2,28 +2,18 @@ package com.ismael.easycommerce.model;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
-
 @Entity
-@Table(name = "usuario")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String username;
-    private String password;
-    private boolean enable;
+    private String senha;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "usuarios_roles",
-            joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "roles_id")
-    )
-    private Set<Role> roles;
+    private String role;
 
-    // Getters e Setters
+    //Getters e Setters
 
     public Long getId() {
         return id;
@@ -37,22 +27,16 @@ public class Usuario {
     public void setUsername(String username) {
         this.username = username;
     }
-    public String getPassword() {
-        return password;
+    public String getSenha() {
+        return senha;
     }
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
-    public boolean isEnable() {
-        return enable;
+    public String getRole() {
+        return role;
     }
-    public void setEnable(boolean enable) {
-        this.enable = enable;
-    }
-    public Set<Role> getRoles() {
-        return roles;
-    }
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(String role) {
+        this.role = role;
     }
 }
