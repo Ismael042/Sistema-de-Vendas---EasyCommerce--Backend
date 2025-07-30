@@ -1,7 +1,6 @@
 package com.ismael.easycommerce.controller;
 
 import com.ismael.easycommerce.model.Usuario;
-import com.ismael.easycommerce.repository.UsuarioRepository;
 import com.ismael.easycommerce.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,5 +19,5 @@ public class UsuarioController {
         Usuario novousuario = usuarioService.salvar(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(novousuario);
     }
-    
+
 }
