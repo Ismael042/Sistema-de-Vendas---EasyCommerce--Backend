@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UsuarioService {
 
@@ -23,5 +25,14 @@ public class UsuarioService {
         }
 
         return usuarioRepository.save(usuario);
+    }
+
+    public void deletarByUsername(String username){
+        Long idDoUsuario = usuarioRepository.buscarIdPorUsername(username);
+        usuarioRepository.deleteById(idDoUsuario);
+    }
+
+    public List<Usuario> listarTudo(){
+        return usuarioRepository.findAll();
     }
 }
