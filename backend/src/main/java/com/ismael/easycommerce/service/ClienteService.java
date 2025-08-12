@@ -25,6 +25,10 @@ public class ClienteService {
         clienteRepository.deleteById(id);
     }
 
+    public Cliente listarPorId(long id){
+        return clienteRepository.findById(id).orElseThrow(()-> new RuntimeException("Cliente não encontrado!"));
+    }
+
     public List<Cliente> listarTodos(){
         return clienteRepository.findAll();
     }
