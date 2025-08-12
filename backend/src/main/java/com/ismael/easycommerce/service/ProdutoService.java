@@ -22,6 +22,10 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
+    public Produto listarPorId(Long id){
+        return produtoRepository.findById(id).orElseThrow(()-> new RuntimeException("Produto não encontrado!"));
+    }
+
     public Integer estoquePorProduto(Long id){
         Integer estoque = produtoRepository.buscarEstoquePorId(id);
         if (estoque == null){

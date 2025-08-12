@@ -34,6 +34,11 @@ public class ProdutoController {
         return produtoService.estoquePorProduto(id);
     }
 
+    @GetMapping("/id/{id}")
+    private ResponseEntity<Produto> listarProdutoPorId(@PathVariable Long id){
+        return ResponseEntity.ok(produtoService.listarPorId(id));
+    }
+
     @GetMapping("/categorias")
     private List<String> categoriasDisponiveis(){
         return produtoService.categoriaDisponiveis();
