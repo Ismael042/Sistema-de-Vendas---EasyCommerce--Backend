@@ -13,7 +13,7 @@ Também está estruturado para ser consumido por um **frontend (React ou qualque
 - **Spring Security (JWT)**
 - **MySQL**
 - **Maven**
-- **Postman**
+- **Documentação | Postman**
 
 ---
 
