@@ -85,7 +85,7 @@ Ou abrir diretamente pelo link compartilhado:
 Este backend foi desenvolvido para ser consumido por um frontend em **React** ou qualquer cliente REST.
 
 A API possui:
-- Endpoints documentados com Swagger e Postman
+- Endpoints documentados com Postman
 - Configuração de CORS para permitir acesso a partir do frontend
 - Estrutura de autenticação JWT para login e gerenciamento de sessão
 
